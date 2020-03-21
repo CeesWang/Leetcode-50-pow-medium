@@ -1,0 +1,19 @@
+class Solution {
+    public double myPow(double x, int n) {
+        if (x == 1) {
+            return x;
+        }
+        if (n < 0) {
+            if (n == Integer.MIN_VALUE) {
+                n +=2;
+            }
+            return 1 / myPow(x, n * -1);
+        }
+        if (n == 0) {
+            return 1;
+        }
+        double power = myPow(x, n/2);
+        
+        return n % 2 == 1 ? power * power * x : power * power;
+    }
+}
